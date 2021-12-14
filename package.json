@@ -27,6 +27,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "lodash": "^4.17.21",
     "pandasuite-bridge": "^4.3.1"
   },
   "release-it": {

@@ -2,93 +2,83 @@
   "version": "2.0.0",
   "main": "",
 
-  "system": {
-    "localization": false,
-    "actions": [
-      {
-        "id": "toMarker",
-        "name": "Change Image",
-        "locale_name": {
-          "fr_FR": "Change Image"
-        },
-        "params": [
-          { "id": "useless", "name": "Useless", "locale_name": {"fr_FR": "Inutile"}, "type": "Boolean" }
-        ]
-      }
-    ],
-    "events": [
-      {
-        "id": "triggerMarker",
-        "name": "Image",
-        "locale_name": {
-          "fr_FR": "Image"
-        }
-      }
-    ],
-    "markers": [
-      {
-        "params": [
-          { "id": "src", "name": "Source", "locale_name": {"fr_FR": "Source"}, "type": "String" }
-        ]
-      }
-    ]
-  },
-
   "properties": [
     {
-      "id": "searchTerm",
-      "name": "Search Term",
-      "locale_name": {
-        "fr_FR": "Terme de recherche"
+      "id": "source",
+      "name": "Source",
+      "type": "Bind",
+      "restrict": {
+        "output": ["Array", "Collection"]
       },
-      "type": "String",
-      "value": "panda"
+      "required": true
+    },
+    {
+      "id": "limit",
+      "name": "Results limit",
+      "locale_name": {
+        "fr_FR": "Limite des résultats"
+      },
+      "type": "Integer",
+      "value": 25
+    },
+    {
+      "id": "intruder",
+      "name": "Percent Min Intruder",
+      "locale_name": {
+        "fr_FR": "Pourcentage Min Intrus"
+      },
+      "type": "Float",
+      "value": 0.3
     }
   ],
 
   "events": [
     {
-      "id": "imageChanged",
-      "name": "Image Changed",
+      "id": "results",
+      "name": "New results",
       "locale_name": {
-        "fr_FR": "Image Changée"
+        "fr_FR": "Nouveaux résultats"
+      },
+      "queryable": {
+        "results": [],
+        "__desc_results": {
+          "name": "Results",
+          "locale_name": {
+            "fr_FR": "Résultats"
+          }
+        }
       }
     }
   ],
 
   "actions": [
     {
-      "id": "changeColor",
-      "name": "Change Color",
+      "id": "search",
+      "name": "Search",
+      "locale_name": {
+        "fr_FR": "Rechercher"
+      },
       "params": [
         {
-          "id": "backgroundColor",
-          "name": "Background Color",
-          "locale_name": {
-            "fr_FR": "Couleur de fond"
-          },
+          "id": "symbole",
           "type": "String",
-          "value": "#FFFFFF"
+          "bindable": true,
+          "name": "Symbole",
+          "locale_name": {
+            "fr_FR": "Symbole"
+          }
         }
       ]
     }
   ],
 
-  "synchronization": [
-    {
-      "id": "synchroImages",
-      "name": "Synchronize images",
+  "queryable": {
+    "results": [],
+    "__desc_results": {
+      "name": "Results",
       "locale_name": {
-        "fr_FR": "Synchroniser images"
+        "fr_FR": "Résultats"
       }
     }
-  ],
-
-  "resources": [
-    {
-      "id": "my_image.png",
-      "type": "Image",
-      "localization": false
-    }
-  ]
+  }
 }
