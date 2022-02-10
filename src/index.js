@@ -29,7 +29,7 @@ PandaBridge.init(() => {
       const nbToFill = limit - result.length;
 
       const queryable = {
-        results: shuffle(result).concat(shuffle(differenceBy(source, result, 'id')).slice(0, nbToFill)),
+        results: shuffle(result.concat(shuffle(differenceBy(source, result, 'id')).slice(0, nbToFill))),
       };
 
       PandaBridge.send('results', [queryable]);
